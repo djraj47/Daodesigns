@@ -1,8 +1,11 @@
 package com.pack.ipem;
 
+import java.sql.Connection;
+
 import com.pack.ipem.Dao.UserDao;
 import com.pack.ipem.Dao.impl.UserDaoImpl;
 import com.pack.ipem.bean.User;
+import com.pack.ipem.util.ConnectionProvider;
 
 public class Main {
 
@@ -16,16 +19,9 @@ public class Main {
 				dao.addUser(new User(102,"vidhi",50400,7495946L));
 				dao.addUser(new User(103,"ritika",52000,7495946L));
 				
-				dao.showAllUsers();
-				System.out.println("-----------------------------------------------");
 				
-				dao.updateUser(new User(106,"moti",68000,9689698493L));
-				dao.showAllUsers();
-				
-				System.out.println("-----------------------------------------------");
-				
-				dao.deleteUser(102);
-				dao.showAllUsers();
+		Connection connection = ConnectionProvider.getConnection();
+		
 
 	}
 

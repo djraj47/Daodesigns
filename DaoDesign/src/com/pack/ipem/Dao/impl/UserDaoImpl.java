@@ -32,10 +32,9 @@ public class UserDaoImpl implements UserDao{
 				found = true;
 				break;
 			}
-			if(!found) {
-				System.out.println("NO user Found");
-				break;
-			}
+		 }
+		 if(!found) {
+			 System.out.println("NO user Found");
 		 }
 		
 		
@@ -54,17 +53,52 @@ public class UserDaoImpl implements UserDao{
 				found = true;
 				break;
 			}
-			if(!found) {
-				System.out.println("NO user Found");
-				break;
-			}
+		}
+		if(found == false) {
+			System.out.println("NO user Found");
 		}
 		
 		
 	}
 	@Override
-	public void findUserById(int id) {
-		// TODO Auto-generated method stub
+	public void findUserById(int id)
+	{
+		boolean found = false;
+		for (int i = 0; i < users.size(); i++)
+		{
+			User user = users.get(i);
+			if(user.getId()==id) 
+			{
+				System.out.println("User Details Found");
+				System.out.println(user);
+				found=true;
+				break;
+			}
+		}
+		if(found == false) 
+		{
+			System.out.println("NO User Details Found");
+		}
+		
+	}
+	@Override
+	public void findUserByName(String name) {
+		boolean found = false;
+		for (int i = 0; i < users.size(); i++)
+		{
+			User user = users.get(i);
+			if(user.getName()==name) 
+			{
+				System.out.println("User Details Found");
+				System.out.println(user);
+				found=true;
+				break;
+			}
+		}
+		if(found == false) 
+		{
+			System.out.println("NO User Details Found");
+		}
 		
 	}
 	
